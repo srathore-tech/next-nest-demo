@@ -24,7 +24,7 @@ const Protected = ({ children }: { children: React.ReactNode }) => {
 
   if (isLoading) {
     return (
-      <section className="w-screen text-orange-500 h-screen flex flex-col items-center justify-center">
+      <section className="w-full text-orange-500 h-screen flex flex-col items-center justify-center">
         
           <LoaderPinwheel size={48} className="animate-spin" />
           <h4 className="mt-2 text-center text-zinc-400">Loading...</h4>

@@ -2,7 +2,7 @@ import { LoaderCircle } from "lucide-react";
 
 export default function Loading() {
   return (
-    <main className="flex min-h-screen items-center justify-center bg-black px-6 text-white">
+    <main className="flex h-full items-center justify-center bg-black px-6 text-white">
       <div className="flex w-full max-w-sm flex-col items-center text-center">
         {/* Loader */}
         <div className="relative mb-8">
