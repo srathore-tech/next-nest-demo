@@ -1,8 +1,8 @@
-import { Injectable } from '@nestjs/common';
-import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
+import { Injectable } from "@nestjs/common";
+import { InjectModel } from "@nestjs/mongoose";
+import { Model } from "mongoose";
 
-import { User } from './schemas/user.schema';
+import { User } from "./schemas/user.schema";
 
 @Injectable()
 export class UsersService {
@@ -11,12 +11,12 @@ export class UsersService {
     private readonly userModel: Model<User>,
   ) {}
 
-  async create(name: string, email: string, password: string,role:string) {
+  async create(name: string, email: string, password: string, role: string) {
     const user = await this.userModel.create({
       name,
       email,
       password,
-      role
+      role,
     });
 
     return user;
@@ -31,6 +31,6 @@ export class UsersService {
   }
 
   async findById(id: string) {
-  return this.userModel.findById(id).select("-password");
-}
+    return this.userModel.findById(id).select("-password");
+  }
 }

@@ -1,11 +1,11 @@
-import { Module } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
-import { JwtModule } from '@nestjs/jwt';
-import { StringValue } from 'ms';
+import { Module } from "@nestjs/common";
+import { ConfigService } from "@nestjs/config";
+import { JwtModule } from "@nestjs/jwt";
+import { StringValue } from "ms";
 
-import { JwtAuthGuard } from './guards/jwt-auth.guard';
-import { APP_GUARD } from '@nestjs/core';
-import { RolesGuard } from 'src/common/guards/roles.guard';
+import { JwtAuthGuard } from "./guards/jwt-auth.guard";
+import { APP_GUARD } from "@nestjs/core";
+import { RolesGuard } from "src/common/guards/roles.guard";
 
 @Module({
   imports: [
@@ -13,14 +13,10 @@ import { RolesGuard } from 'src/common/guards/roles.guard';
       inject: [ConfigService],
 
       useFactory: (configService: ConfigService) => ({
-        secret: configService.getOrThrow<string>(
-          'JWT_SECRET',
-        ),
+        secret: configService.getOrThrow<string>("JWT_SECRET"),
 
         signOptions: {
-          expiresIn: configService.getOrThrow<StringValue>(
-            'JWT_EXPIRES_IN',
-          ),
+          expiresIn: configService.getOrThrow<StringValue>("JWT_EXPIRES_IN"),
         },
       }),
     }),
@@ -39,9 +35,6 @@ import { RolesGuard } from 'src/common/guards/roles.guard';
     },
   ],
 
-  exports: [
-    JwtModule,
-    JwtAuthGuard,
-  ],
+  exports: [JwtModule, JwtAuthGuard],
 })
 export class JwtAuthModule {}

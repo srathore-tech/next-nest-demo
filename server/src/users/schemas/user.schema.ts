@@ -1,6 +1,6 @@
-import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { HydratedDocument } from 'mongoose';
-import { Role } from 'src/common/enums/role.enum';
+import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
+import { HydratedDocument } from "mongoose";
+import { Role } from "src/common/enums/role.enum";
 
 export type UserDocument = HydratedDocument<User>;
 
@@ -14,9 +14,9 @@ export class User {
   })
   name: string;
 
-   @Prop({
+  @Prop({
     default: Role.USER,
-    enum:Role,
+    enum: Role,
   })
   role: string;
 
