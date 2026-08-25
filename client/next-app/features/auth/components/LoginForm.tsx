@@ -34,7 +34,7 @@ export default function LoginForm() {
       <div className="rounded-2xl border border-zinc-800 bg-zinc-950 p-6 shadow-2xl sm:p-8">
         {/* Header */}
         <div className="mb-8 text-center">
-          <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-400">
+          <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-orange-500/10 text-orange-400">
             <LockKeyhole size={24} />
           </div>
 
@@ -71,7 +71,7 @@ export default function LoginForm() {
                 className={`h-11 w-full rounded-lg border bg-zinc-900 pl-10 pr-4 text-sm text-white outline-none transition placeholder:text-zinc-600 ${
                   errors.email
                     ? "border-red-500/70 focus:border-red-500"
-                    : "border-zinc-800 focus:border-emerald-500"
+                    : "border-zinc-800 focus:border-orange-500"
                 }`}
                 {...register("email", {
                   required: "Email is required",
@@ -104,7 +104,7 @@ export default function LoginForm() {
 
               <button
                 type="button"
-                className="text-xs font-medium text-emerald-400 transition hover:text-emerald-300"
+                className="text-xs font-medium text-orange-400 transition hover:text-orange-300"
               >
                 Forgot password?
               </button>
@@ -124,7 +124,7 @@ export default function LoginForm() {
                 className={`h-11 w-full rounded-lg border bg-zinc-900 pl-10 pr-11 text-sm text-white outline-none transition placeholder:text-zinc-600 ${
                   errors.password
                     ? "border-red-500/70 focus:border-red-500"
-                    : "border-zinc-800 focus:border-emerald-500"
+                    : "border-zinc-800 focus:border-orange-500"
                 }`}
                 {...register("password", {
                   required: "Password is required",
@@ -158,7 +158,7 @@ export default function LoginForm() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="group flex h-11 w-full items-center justify-center gap-2 rounded-lg bg-emerald-500 px-4 text-sm font-semibold text-zinc-950 transition hover:bg-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 disabled:cursor-not-allowed disabled:opacity-60"
+            className="group flex h-11 w-full items-center justify-center gap-2 rounded-lg bg-orange-500 px-4 text-sm font-semibold text-zinc-950 transition hover:bg-orange-400 focus:outline-none focus:ring-2 focus:ring-orange-500/50 disabled:cursor-not-allowed disabled:opacity-60"
           >
             {isSubmitting ? (
               "Signing in..."
@@ -179,7 +179,7 @@ export default function LoginForm() {
           Don't have an account?{" "}
           <Link
             href="/register"
-            className="font-medium text-emerald-400 transition hover:text-emerald-300"
+            className="font-medium text-orange-400 transition hover:text-orange-300"
           >
             Create account
           </Link>
