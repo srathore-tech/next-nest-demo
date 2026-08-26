@@ -17,7 +17,7 @@ export class AuthService {
     private readonly jwtService: JwtService,
   ) {}
   async register(registerDto: RegisterDto) {
-    const { name, email, password, role } = registerDto;
+    const { name, email, password } = registerDto;
 
     const existingUser = await this.usersService.findByEmail(email);
 
@@ -26,12 +26,7 @@ export class AuthService {
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
-    const user = await this.usersService.create(
-      name,
-      email,
-      hashedPassword,
-      role,
-    );
+    const user = await this.usersService.create(name, email, hashedPassword);
 
     return {
       message: "User registered successfully",
@@ -53,7 +48,6 @@ export class AuthService {
     if (!isMatch) {
       throw new UnauthorizedException("Invalid email or password");
     }
-    console.log({ user });
     const payload: JwtPayload = {
       sub: user._id.toString(),
       email: user.email,

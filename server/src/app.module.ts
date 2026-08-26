@@ -5,8 +5,10 @@ import { AuthModule } from "./auth/auth.module";
 import { UsersModule } from "./users/users.module";
 import { MongooseModule } from "@nestjs/mongoose";
 import { ConfigModule, ConfigService } from "@nestjs/config";
-import { AdminsService } from "./admins/admins.service";
 import { AdminsModule } from "./admins/admins.module";
+import { TeamsModule } from "./teams/teams.module";
+import { ProjectsModule } from "./projects/projects.module";
+import { TasksModule } from "./tasks/tasks.module";
 
 @Module({
   imports: [
@@ -22,8 +24,11 @@ import { AdminsModule } from "./admins/admins.module";
     AuthModule,
     UsersModule,
     AdminsModule,
+    TeamsModule,
+    ProjectsModule,
+    TasksModule,
   ],
   controllers: [AppController],
-  providers: [AppService, AdminsService],
+  providers: [AppService],
 })
 export class AppModule {}
