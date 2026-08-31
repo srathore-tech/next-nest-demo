@@ -29,7 +29,7 @@ const Main = ({ children }: { children: ReactNode }) => (
         backgroundSize: "36px 36px",
       }}
     />
-    <div className="relative max-w-6xl mx-auto">{children}</div>
+    <div className="relative  mx-auto">{children}</div>
   </main>
 );
 

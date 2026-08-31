@@ -11,6 +11,7 @@ import { MessageResponse } from "@/shared/types/api.types";
 
 export const USER_QUERY_KEYS = {
   currentUser: ["currentUser"] as const,
+  allUser: ["allUsers"] as const,
 };
 
 export function useCurrentUser(options?: { enabled?: boolean }) {
@@ -43,5 +44,19 @@ export function useUpdateProfile() {
 export function useChangePassword() {
   return useMutation<MessageResponse, Error, ChangePasswordPayload>({
     mutationFn: (payload) => usersService.changePassword(payload),
+  });
+}
+
+export function useFetchAllUser(options?: { enabled?: boolean }) {
+  const hasToken =
+    typeof window !== "undefined"
+      ? Boolean(localStorage.getItem("accessToken"))
+      : false;
+    return useQuery<User[], Error>({
+    queryKey: USER_QUERY_KEYS.allUser,
+    queryFn: () => usersService.getAllUser(),
+    enabled: options?.enabled !== undefined ? options.enabled : hasToken,
+    retry: false,
+    staleTime: 1000 * 60 * 5, // 5 minutes
   });
 }

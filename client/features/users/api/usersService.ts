@@ -7,6 +7,11 @@ import {
 import { MessageResponse } from "@/shared/types/api.types";
 
 export const usersService = {
+  getAllUser:async():Promise<User[]>=>{
+    const response = await api.get<User[]>("/users/getAll");
+    return response.data
+  },
+
   getProfile: async (): Promise<User> => {
     const response = await api.get<User>("/users/me");
     return response.data;

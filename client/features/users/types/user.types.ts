@@ -5,6 +5,8 @@ export interface User {
   name: string;
   email: string;
   role: Role | string;
+  teamlist?:[string];
+  availableStatus?:boolean;
   createdAt?: string;
   updatedAt?: string;
 }

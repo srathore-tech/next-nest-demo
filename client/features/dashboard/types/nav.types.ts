@@ -1,3 +1,3 @@
-type NavKey = "dashboard" | "teams" | "projects";
+type NavKey = "dashboard" | "teams" | "projects" | "userlist";
 
 export default NavKey;

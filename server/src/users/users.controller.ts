@@ -12,10 +12,11 @@ export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
   // @Roles(Role.ADMIN)
-  // @Get()
-  // findAll() {
-  //   return this.usersService.findAll();
-  // }
+  @Get("getAll")
+  findAll() {
+    return this.usersService.findAll();
+  }
+
   @Get("me")
   async getProfile(@CurrentUser() user: JwtPayload) {
     return this.usersService.findById(user.sub);

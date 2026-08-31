@@ -6,6 +6,7 @@ export const pageTitles: Record<NavKey, string> = {
   dashboard: "Dashboard",
   teams: "Manage Teams",
   projects: "Projects",
+  userlist:"User List"
 };
 
 
@@ -13,6 +14,7 @@ export const navItems: { key: NavKey; label: string; icon: typeof LayoutDashboar
   { key: "dashboard", label: "Dashboard", icon: LayoutDashboard ,href: "/dashboard"},
   { key: "teams", label: "Manage Teams", icon: Users ,href: "/dashboard/manage-teams"},
   { key: "projects", label: "Projects", icon: FolderKanban ,href: "/dashboard/projects"},
+  { key: "userlist", label: "User List", icon: FolderKanban ,href: "/dashboard/userlist"},
 ];
 
 

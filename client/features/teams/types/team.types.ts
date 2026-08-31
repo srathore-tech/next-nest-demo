@@ -27,3 +27,33 @@ export interface UpdateTeamPayload {
 export interface AddTeamMemberPayload {
   userId: string;
 }
+
+
+export interface TeamResponse {
+  _id: string;
+  name: string;
+  description?: string;
+  owner: {
+    _id: string;
+    name: string;
+    email?: string;
+  };
+  members: Array<{
+    _id: string;
+    name: string;
+    email?: string;
+  }>;
+}
+
+export interface CreateTeamForm {
+  name: string;
+  description: string;
+}
+
+export interface TeamListProps {
+  teams?: TeamResponse[];
+  isLoading?: boolean;
+  onCreateTeam?: (data: CreateTeamForm) => void | Promise<void>;
+  onEditTeam?: (team: TeamResponse) => void;
+  onDeleteTeam?: (teamId: string) => void;
+}
