@@ -27,6 +27,14 @@ jobs:
         working-directory: client
         run: npm ci
 
+      - name: Lint frontend
+        working-directory: client
+        run: npm run lint
+
+      # - name: Test frontend
+      #   working-directory: client
+      #   run: npm test
+
       - name: Build Next.js
         working-directory: client
         run: npm run build
@@ -47,6 +55,14 @@ jobs:
       - name: Install backend dependencies
         working-directory: server
         run: npm ci
+      
+      - name: Lint Backend
+        working-directory: server
+        run: npm run lint
+
+      - name: Test Backend
+        working-directory: server
+        run: npm test
 
       - name: Build NestJS
         working-directory: server
