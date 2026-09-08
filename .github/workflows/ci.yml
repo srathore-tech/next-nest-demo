@@ -1,0 +1,69 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+
+jobs:
+
+  frontend:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Install frontend dependencies
+        working-directory: client
+        run: npm ci
+
+      - name: Lint frontend
+        working-directory: client
+        run: npm run lint
+
+      # - name: Test frontend
+      #   working-directory: client
+      #   run: npm test
+
+      - name: Build Next.js
+        working-directory: client
+        run: npm run build
+
+
+  backend:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Install backend dependencies
+        working-directory: server
+        run: npm ci
+      
+      - name: Lint Backend
+        working-directory: server
+        run: npm run lint
+
+      - name: Test Backend
+        working-directory: server
+        run: npm test
+
+      - name: Build NestJS
+        working-directory: server
+        run: npm run build
